@@ -68,7 +68,7 @@ class UserService extends _Service
                 return returnData(
                     [],
                     Response::HTTP_UNAUTHORIZED,
-                    compact('user', 'token'),
+                    compact('user', 'plain_token'),
                     ['Login Success']
                 );
             } else {
