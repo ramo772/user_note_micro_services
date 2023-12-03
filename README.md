@@ -46,6 +46,10 @@ Run the database migrations at the application shell in the docker(**auth-user-m
 
 Repeat the above steps at the note-management-micro-service
 
+In the note-management-micro-service, make sure to run the following command to start the worker for handling queues:
+
+    php artisan queue:work
+
 # Overview
 
 This application uses two microservices. The first, called auth-user, manages user registration and login. Upon these events, it dispatches a job and communicates them through RabbitMQ. The second microservice handles note management, listening for events from auth-user through RabbitMQ. It performs CRUD operations related to note management. This design promotes modularity and scalability, allowing each microservice to handle its tasks independently while communicating seamlessly through RabbitMQ.
